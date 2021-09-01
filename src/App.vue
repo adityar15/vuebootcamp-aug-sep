@@ -1,30 +1,40 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
-  <router-view/>
+  <component :is="layout"></component>
+  <!-- <div></div> -->
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
 
-#nav {
-  padding: 30px;
-}
+<script>
+import {watch, ref} from 'vue'
+import {useRoute} from 'vue-router'
+import Authenticated from '@/views/layouts/Authenticated.vue'
+import Default from '@/views/layouts/Authenticated.vue'
+export default {
+  components:{
+    Authenticated, 
+    Default
+  },
+  setup() {
+    const layout = ref('')
+    const route = useRoute()
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
+    watch(route, (to)=>{
 
-#nav a.router-link-exact-active {
-  color: #42b983;
+      if(to.meta.layout)
+      {
+        layout.value = to.meta.layout
+        console.log("Layout", layout.value)
+      }
+      else{
+        layout.value = "Default"
+      }
+    })
+
+    return {
+      layout
+    }
+    
+  },
 }
-</style>
+</script>
+

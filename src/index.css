@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.menu-layout{
+    @apply flex items-center space-x-5 mx-3;
+}
