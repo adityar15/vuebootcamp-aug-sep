@@ -32,7 +32,7 @@ export default {
 
 <style scoped>
 .header {
-    @apply sticky top-0 w-full bg-transparent flex justify-between items-center;
+    @apply sticky top-0 w-full bg-transparent flex justify-between items-center z-50;
 }
 .header > div {
     @apply p-2;
