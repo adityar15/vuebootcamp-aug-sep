@@ -37,10 +37,10 @@ export default {
 .header > div {
     @apply p-2;
 }
-.class {
-    @apply w-[20%];
+.logo {
+    @apply w-[10%];
 }
 .menu {
-    @apply w-[80%] flex justify-between items-center;
+    @apply w-[90%] flex justify-between items-center;
 }
 </style>

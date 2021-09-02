@@ -8,7 +8,7 @@
 import {watch, ref} from 'vue'
 import {useRoute} from 'vue-router'
 import Authenticated from '@/views/layouts/Authenticated.vue'
-import Default from '@/views/layouts/Authenticated.vue'
+import Default from '@/views/layouts/Default.vue'
 export default {
   components:{
     Authenticated, 
