@@ -1,5 +1,5 @@
 <template>
-  <div class="mainpagescreen">
+  <div class="mainpagescreen" :style="`background-image:${imageLink}/w300/${lmovie.backdrop_path}`">
     <div class="mainpage">
       <div class="content">
         <h2 class="title">

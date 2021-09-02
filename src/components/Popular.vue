@@ -1,17 +1,20 @@
 <template>
     <div>
-        <Slider :moviecollection="popularMovieComputed" />
+        <SliderTitle text="Popular" />
+        <Slider :moviecollection="popularMovieComputed.results" />
     </div>
 </template>
 
 <script>
 import Slider from '@/components/Slider.vue'
+import SliderTitle from '@/components/SliderTitle.vue'
 import {useStore} from 'vuex'
 import {computed, ref} from 'vue'
 
 export default {
     components: {
-        Slider
+        Slider,
+        SliderTitle
     },
     setup() {
         const store = useStore()
@@ -22,7 +25,7 @@ export default {
            if(window.scrollY >= 70 && !flag.value)
            {
                store.dispatch('movie/loadPopularMovie');
-               console.log('Computed Value', popularMovieComputed.value)
+               console.log('Computed Value', popularMovieComputed)
                flag.value =true
            }
        })

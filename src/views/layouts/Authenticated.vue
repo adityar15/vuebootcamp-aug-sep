@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="main-wrapper">
      <Navbar />   
         <router-view></router-view>
     </div>
@@ -15,3 +15,9 @@ export default {
     },
 }
 </script>
+
+<style scoped>
+.main-wrapper{
+    @apply bg-[#141414];
+}
+</style>

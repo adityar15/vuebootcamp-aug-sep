@@ -21,6 +21,6 @@ export default {
 </script>
 <style scoped>
 .other-content{
-    @apply mt-[100vh]
+    @apply mt-[100vh] ml-[7%] overflow-y-visible;
 }
 </style>

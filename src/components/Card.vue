@@ -1,6 +1,8 @@
 <template>
-    <div class="card">
-        <img src="" alt="" class="image">
+    <div class="card" v-if="movie">
+       
+        <img :src="`${imageLink}/w300/${movie.backdrop_path}`" alt="" class="image">
+    
         <div>
             <div class="icons-container">
                 <div class="slot-1">
@@ -18,7 +20,7 @@
 </template>
 
 <script>
-import {defineAsyncComponent} from 'vue'
+import {defineAsyncComponent, ref} from 'vue'
 
 const IconButton = defineAsyncComponent(()=>import(/*webpackChunkName: "Iconbutton"*/'@/components/IconButton.vue'))
 
@@ -26,14 +28,39 @@ export default{
     components:{
         IconButton
     },
+    props: {
+        movie: {
+            type: Object
+        }
+    },
     setup() {
-        // 
+         const imageLink = ref(process.env.VUE_APP_POSTER_IMAGE)
+
+         return{
+             imageLink
+         }
     },
 }
 </script>
 <style scoped>
+
+/* style for card */
+
+.card{
+    @apply w-[185px] shadow-lg transition-all duration-500 ease-in-out;
+}
+
+
+
+.image{
+    @apply w-[185px];
+}
+
+/* style from yesterday */
+
+
 .icons-container{
-    @apply flex justify-between mt-4;
+    @apply flex justify-between bg-[#141414];
 }
 .slot-1{
     @apply flex space-x-2 p-1;
