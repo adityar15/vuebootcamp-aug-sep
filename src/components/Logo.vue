@@ -104,6 +104,6 @@
 
 <style scoped>
 .logo-icon{
-    @apply w-16 h-16;
+    @apply w-16 h-16 ml-5;
 }
 </style>
