@@ -29,7 +29,8 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "browse" */ '../views/Browse.vue'),
     meta:{
-      layout:'Authenticated'
+      layout:'Authenticated',
+      authenticated: true,
     }
   }
 ]
@@ -37,6 +38,18 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
+})
+
+router.beforeEach((to,from)=>{
+  if(to.meta.authenticated)
+  {
+    if(!localStorage.getItem('_token'))
+    {
+      return '/'
+    }
+  }
+  console.log("Router", to)
+  console.log("from", from)
 })
 
 export default router

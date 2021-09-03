@@ -1,10 +1,10 @@
 <template>
-    <div class="card" v-if="movie">
+    <div class="card" v-if="movie" @mouseenter="show" @mouseleave="hide">
        
         <img :src="`${imageLink}/w300/${movie.backdrop_path}`" alt="" class="image">
     
         <div>
-            <div class="icons-container">
+            <div class="icons-container" v-if="showContent">
                 <div class="slot-1">
                 <IconButton></IconButton>
                 <IconButton></IconButton>
@@ -35,9 +35,20 @@ export default{
     },
     setup() {
          const imageLink = ref(process.env.VUE_APP_POSTER_IMAGE)
+         const showContent = ref(false)
+
+        function show(){
+            showContent.value = true;
+        }
+        function hide(){
+            showContent.value = false;
+        }
 
          return{
-             imageLink
+             imageLink,
+             showContent,
+             show,
+             hide
          }
     },
 }

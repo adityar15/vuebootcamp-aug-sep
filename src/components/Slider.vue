@@ -7,7 +7,9 @@
     @slideChange="onSlideChange"
     class="swiper-container"
   >
-    <swiper-slide class="slide" v-for="(item, index) in moviecollection" :key="index"><Card :movie="item" /></swiper-slide>
+    <swiper-slide class="slide" v-for="(item, index) in moviecollection" :key="index">
+      <Card :movie="item" />
+      </swiper-slide>
    
   </swiper>
 

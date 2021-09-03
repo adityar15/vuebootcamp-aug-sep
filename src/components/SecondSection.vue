@@ -4,17 +4,19 @@
         <NavItem path="/browse" text="KIDS"></NavItem>
         <NavItem path="/browse" text="DVD"></NavItem>
         <NavItem path="/browse" text="Notification"></NavItem>
-        <NavItem path="/browse" text="User Icon"></NavItem>
+        <UserIcon />
     </ul>
 </template>
 
 <script>
 import NavItem from './NavItem.vue'
 import SearchIcon from './SearchIcon.vue'
+import UserIcon from './UserIcon.vue'
 export default {
     components:{
         NavItem,
-        SearchIcon
+        SearchIcon,
+        UserIcon
     },
     setup() {
         

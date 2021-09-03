@@ -2,7 +2,8 @@ import axios from 'axios'
 
 const state = {
     latestMovie: {},
-    popularMovies: {}
+    popularMovies: {},
+    trendingMovies: {}
   }
 
   const mutations ={
@@ -11,7 +12,10 @@ const state = {
     },
     setPopularMovie(state, payload){
         state.popularMovies = payload
-      }
+      },
+      setTrendingMovie(state, payload){
+        state.trendingMovies = payload
+      },
   }
 
   const actions = {
@@ -26,7 +30,14 @@ const state = {
        
             commit('setPopularMovie',res.data)
           })
-    }
+    },
+
+    loadTrendingMovie({commit}){
+      axios.get(`${process.env.VUE_APP_BASE_URL}/trending/movie/week?api_key=${process.env.VUE_APP_API_KEY}`).then(res=>{
+     
+          commit('setTrendingMovie',res.data)
+        })
+  }
   }
 
   const getters = {
@@ -35,7 +46,11 @@ const state = {
       },
       getPopularMovies(state){
         return state.popularMovies
-      }
+      },
+      getTrendingMovies(state){
+        return state.trendingMovies
+      },
+
   }
 
   export default{
