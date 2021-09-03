@@ -6,6 +6,6 @@
 
 <style scoped>
 .primary {
-    @apply bg-gray-50 text-gray-900 px-7 py-2;
+    @apply bg-gray-50 text-gray-900 px-7 py-2 rounded-lg;
 }
 </style>
